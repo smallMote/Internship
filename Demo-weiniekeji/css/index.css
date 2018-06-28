@@ -1,0 +1,458 @@
+html{
+    font-size: 16px;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style-type: none;
+}
+a,a:hover{
+    color: white;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+}
+/*header-开始*/
+header{
+    background: url("../images/header-bg.jpg") 100% no-repeat;
+    font-size: 12px;!important;
+}
+.select-lang{
+    position: relative;
+    height: 20px;
+    margin: 15px 0;
+}
+.select-lang>div{
+    position: absolute;
+    right: 0;
+    width: 120px;
+    line-height: 20px;
+}
+.select-lang>div>a:first-child{
+    border-right: 1px solid white;
+    padding-right: 5px;
+}
+.header-content{
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+}
+.logo,.search{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.logo img{
+    width: 50%;
+}
+.menu{
+    display: flex;
+    justify-content: flex-end;
+}
+.menu li{
+    margin: 0 15px;
+}
+.menu li:last-child{
+    margin: 0;
+}
+.input-group{
+    height: 20px;!important;
+    width: 220px;
+    position: absolute;
+    right: 0;
+    border-radius: 8px;
+}
+.input-group>input,
+.input-group>.input-group-addon:last-child{
+    height: 20px;
+    padding: 0 5px;
+    font-size: 12px;
+}
+.input-group-addon{
+    background: #facd89;
+    width: 25px;
+    overflow: hidden;
+}
+.input-group-addon>img{
+    width: 100%;
+}
+/*header-结束*/
+/*nav-开始*/
+body>nav{
+    background: #facd89;
+    height: 36px;
+    position: relative;
+    z-index: 1;
+}
+.nav-menu{
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-menu li{
+    /*width: 66px;*/
+    transition: all .5s;
+    text-align: center;
+}
+.nav-menu li a{
+    display: block;
+    line-height: 36px;
+    padding: 0 15px;
+    color: #006699;
+}
+.nav-menu>li:last-child a{
+    padding-right: 0;
+}
+.sec-menu{
+    display: none;
+}
+.nav-menu li:hover .sec-menu{
+    display: block;
+}
+.nav-menu li:hover{
+    background: #006666;
+}
+.nav-menu li li:hover{
+    background: #09a9a9;
+}
+.nav-menu li:hover a{
+    color: white;
+}
+#clickRoot{
+    width: 50px;
+    height: 30px;
+    border-radius: 4px;
+    display: none;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    background: #fc597b;
+}
+#clickRoot:hover{
+    opacity: .9;
+}
+#menuBtn{
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    body>nav{
+        height: 0;
+        background: none;
+    }
+    .nav-menu{
+        flex-direction: column;
+        background: rgba(0,0,0,.5);
+        z-index: 999;
+        padding: 0;
+    }
+    .carousel-indicators{
+        z-index: -1;!important;
+    }
+    .nav-menu li{
+        width: 100%;
+        border-bottom: 1px solid #006666;
+    }
+    .nav-menu li a{
+        color: white;
+    }
+    .news>div,
+    .news .col>div{
+        padding: 0;!important;
+    }
+}
+@media only screen and (max-width: 1000px){
+    .nav-menu li a{
+        padding: 0 5px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    body>header{
+        height: 50px;
+        position: relative;
+    }
+    body>header .select-lang,
+    body>header .search{
+        display: none;
+    }
+    .logo img{
+        margin-top: 15px;
+    }
+    #clickRoot{
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+    }
+
+}
+/*nav-结束*/
+/*banner-开始*/
+.carousel-control.left{
+    background: url("../images/action-left.png") center no-repeat;
+}
+.carousel-control.right{
+    background: url("../images/action-right.png") center no-repeat;
+}
+/*banner-结束*/
+/*新闻&通知开始*/
+.news{
+    margin: 30px auto;
+}
+.news a{
+    color: black;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #006666;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+.more-link{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.title h2{
+    display: block;
+    border-bottom: 2px solid #006666;
+    margin: 0;
+}
+.more-link a{
+    display: block;
+    line-height: 30px;
+    color: black;
+}
+.more-link img{
+    width: 15px;
+    margin: auto 0;
+}
+.news .col>div{
+    padding: 0 15px;
+}
+.news-banner-con{
+    padding: 0;
+    height: 194px;
+    overflow: hidden;
+}
+.news-banner-con>div{
+    height: 100%;
+}
+/*个人轮播引用-开始*/
+#wlittleyang-banner-fade {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+#wlittleyang-banner-fade .container {
+    overflow: hidden;
+    transition: all 1s;
+    padding: 0;
+    background: #006666;
+    height: 100%;
+}
+#wlittleyang-banner-fade .item {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-size: 50px;
+    transition: all 2s;
+    opacity: 0;
+    cursor: pointer;
+    padding: 0;
+}
+#wlittleyang-banner-fade .item:first-child {
+    opacity: 1;
+}
+#wlittleyang-banner-fade .item img {
+    height: 100%;
+}
+#wlittleyang-banner-fade .action-btn {
+    display: none;
+}
+#wlittleyang-banner-fade .action-btn span {
+    display: inline-block;
+    padding: 5px;
+    margin: 15px;
+    background: seagreen;
+    border-radius: 4px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+#wlittleyang-banner-fade .action-hover {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+}
+#wlittleyang-banner-fade .action-hover-item {
+    width: 15px;
+    height: 15px;
+    border: 1px solid white;
+    display: block;
+    transition: 1s all  ;
+    line-height: 15px;
+    text-align: center;
+    color: white;
+}
+#wlittleyang-banner-fade .action-hover-item:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,.6);
+}
+/*个人轮播引用-结束*/
+.news-content-list img{
+    width: 15px;
+}
+.news-content-list>div{
+    display: flex;
+    overflow: hidden;
+    line-height: 25px;
+}
+.news-message{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 5px;
+}
+.news-date{
+    width: 120px;
+    text-align: right;
+}
+.tongzhi-content,
+.tuan-content{
+    display: flex;
+    overflow: hidden;
+    padding: 5px 0;
+}
+.tongzhi-content.active,
+.tuan-content.active{
+    background-color: #006666;
+    color: white;
+}
+.tongzhi-content .date,
+.tuan-content .date{
+    padding: 0 15px;
+    border-right: 1px solid white;
+}
+.tongzhi-content .date h3,
+.tuan-content .date h3{
+    line-height: 0;
+    color: #006666;
+}
+.tongzhi-content.active .date h3,
+.tuan-content.active .date h3{
+    color: white;
+}
+.tongzhi-content .tongzhi-message,
+.tuan-content .tuan-message{
+    width: 100%;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.tongzhi-content span,
+.tuan-content span{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin:5px 0;
+}
+.tongzhi-content span:last-child,
+.tuan-content span:last-child{
+    font-size: 12px;
+}
+/*新闻&通知结束*/
+/*团学&特色-开始*/
+.chara .title{
+    border-bottom: 1px solid #d73142;
+}
+.chara h2{
+    border-bottom: 2px solid #d73142;
+    color: #d73142;
+}
+.chara ul li{
+    background-color: #009e9e;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color .5s;
+}
+.chara ul li:hover{
+    background-color: #fc597b;
+}
+/*团学&特色-结束*/
+/*学术研究-开始*/
+.thumbnail,
+.thumbnail:hover,
+.thumbnail .caption{
+    border: 0;
+    padding: 0;!important;
+    margin: 0;
+}
+.academic .caption section{
+    display: flex;
+    justify-content: space-between;
+}
+.academic .caption span{
+    position: relative;
+    margin: 15px 0;
+    display: block;
+    padding-left: 1.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.academic-title{
+    color: #006666;
+}
+.academic .caption .academic-title::before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: #8a6d3b;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+.academic-date{
+    width: 170px;
+    text-align: right;
+}
+/*学术研究-结束*/
+/*相关链接-开始*/
+.relation-link{
+    background-color: #facd89;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.relation-link a{
+    color: #006666;
+    width: 120px;
+    text-align: center;
+    display: block;
+    line-height: 60px;
+}
+/*相关链接-结束*/
+/*页脚-开始*/
+body>footer{
+    padding: 30px 15px 30px 15px;
+    text-align: center;
+    background-color: #006666;
+    color: white;
+}
+/*页脚-结束*/
