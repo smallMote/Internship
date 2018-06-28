@@ -230,6 +230,13 @@ body>nav{
 }
 /*banner-结束*/
 /*新闻&通知开始*/
+.content-item:hover .title h2{
+    border-bottom: 2px solid #d73142;
+    color: #d73142;
+}
+.content-item:hover .title{
+    border-bottom: 1px solid #d73142;
+}
 .news{
     margin: 30px auto;
 }
@@ -252,6 +259,7 @@ body>nav{
     display: block;
     border-bottom: 2px solid #006666;
     margin: 0;
+    padding-bottom: 5px;
 }
 .more-link a{
     display: block;
@@ -393,10 +401,11 @@ body>nav{
 .tuan-content:hover{
     box-shadow: 5px 5px 5px 2px #888888,
                 0 0 0 1px #006666;
-}
-.tongzhi-content.active,
-.tuan-content.active{
     background-color: #006666;
+    color: white;
+}
+.tuan-content:hover .date h3,
+.tongzhi-content:hover .date h3{
     color: white;
 }
 .tongzhi-content .date,
@@ -408,10 +417,6 @@ body>nav{
 .tuan-content .date h3{
     line-height: 0;
     color: #006666;
-}
-.tongzhi-content.active .date h3,
-.tuan-content.active .date h3{
-    color: white;
 }
 .tongzhi-content .tongzhi-message,
 .tuan-content .tuan-message{
@@ -433,13 +438,6 @@ body>nav{
 }
 /*新闻&通知结束*/
 /*团学&特色-开始*/
-.chara .title{
-    border-bottom: 1px solid #d73142;
-}
-.chara h2{
-    border-bottom: 2px solid #d73142;
-    color: #d73142;
-}
 .chara ul li{
     background-color: #009e9e;
     cursor: pointer;
