@@ -9,7 +9,7 @@ li{
     list-style-type: none;
 }
 a,a:hover{
-    color: white;
+    color: rgba(255,255,255,.8);
     text-decoration: none;
 }
 img{
@@ -19,6 +19,9 @@ img{
 header{
     background: url("../images/header-bg.jpg") 100% no-repeat;
     font-size: 12px;!important;
+}
+a:hover{
+    color: white;
 }
 .select-lang{
     position: relative;
@@ -114,8 +117,15 @@ body>nav{
 .sec-menu{
     display: none;
 }
-.nav-menu li:hover .sec-menu{
-    display: block;
+
+/*二级菜单的响应式*/
+@media only screen and (min-width: 768px){
+    .nav-menu li:hover .sec-menu{
+        display: block;
+    }
+    .nav-menu li.lang-en{
+        display: none;
+    }
 }
 .nav-menu li:hover{
     background: #006666;
@@ -126,54 +136,27 @@ body>nav{
 .nav-menu li:hover a{
     color: white;
 }
+#clickRoot .icon-bar{
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: white;
+    margin: 5px auto;
+    border-radius: 8px;
+}
+#clickRoot:hover{
+    opacity: .9;
+}
 #clickRoot{
     width: 50px;
     height: 30px;
     border-radius: 4px;
     display: none;
-    line-height: 30px;
-    text-align: center;
-    text-decoration: none;
-    background: #fc597b;
-}
-#clickRoot:hover{
-    opacity: .9;
-}
-#menuBtn{
-    display: none;
+    outline: none;
+    background: none;
+    border: 0;
 }
 @media only screen and (max-width: 768px) {
-    body>nav{
-        height: 0;
-        background: none;
-    }
-    .nav-menu{
-        flex-direction: column;
-        background: rgba(0,0,0,.5);
-        z-index: 999;
-        padding: 0;
-    }
-    .carousel-indicators{
-        z-index: -1;!important;
-    }
-    .nav-menu li{
-        width: 100%;
-        border-bottom: 1px solid #006666;
-    }
-    .nav-menu li a{
-        color: white;
-    }
-    .news>div,
-    .news .col>div{
-        padding: 0;!important;
-    }
-}
-@media only screen and (max-width: 1000px){
-    .nav-menu li a{
-        padding: 0 5px;
-    }
-}
-@media only screen and (max-width: 550px) {
     body>header{
         height: 50px;
         position: relative;
@@ -181,6 +164,9 @@ body>nav{
     body>header .select-lang,
     body>header .search{
         display: none;
+    }
+    body>header .search input{
+        outline: none;
     }
     .logo img{
         margin-top: 15px;
@@ -192,7 +178,47 @@ body>nav{
         top: 10px;
         right: 10px;
     }
+    /*菜单交互*/
+    body>nav{
+        height: auto;
+        margin-bottom: 0;
+        background: #e6e6e6;
+    }
+    .nav-menu li:hover{
+        background: none;
+    }
+    .nav-menu li:hover a{
+        color: black;
+    }
+    .nav-menu li:hover ul{
+        display: none;
+    }
+    .nav-menu{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        z-index: 999;
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .carousel-indicators{
+        z-index: -1;!important;
+    }
+    .nav-menu li{
+        width: 30%;
+    }
+    .nav-menu li a{
+        color: #777777;
+    }
+    .news>div,
+    .news .col>div{
+        padding: 0;!important;
+    }
 
+}
+@media only screen and (max-width: 1000px){
+    .nav-menu li a{
+        padding: 0 5px;
+    }
 }
 /*nav-结束*/
 /*banner-开始*/
@@ -278,6 +304,11 @@ body>nav{
 }
 #wlittleyang-banner-fade .item img {
     height: 100%;
+    transition: all 0.4s ease;
+    transform-origin: center;
+}
+#wlittleyang-banner-fade .item:hover img{
+
 }
 #wlittleyang-banner-fade .action-btn {
     display: none;
@@ -322,6 +353,25 @@ body>nav{
     display: flex;
     overflow: hidden;
     line-height: 25px;
+    transition: all 0.36s ease;
+    color: #6f6f6f;
+}
+.news-content-list>div a{
+    transition: all 0.36s ease;
+    color: #6f6f6f;
+    text-decoration: none;
+}
+/*交互*/
+.news-content-list>div:hover{
+    padding: 0 5px;
+    color: #337ab7;
+}
+.news-content-list>div .news-date{
+    width: 110px;
+    text-align: right;
+}
+.news-content-list>div:hover a{
+    color: #337ab7;
 }
 .news-message{
     overflow: hidden;
@@ -329,15 +379,20 @@ body>nav{
     text-overflow: ellipsis;
     margin-right: 5px;
 }
-.news-date{
-    width: 120px;
-    text-align: right;
-}
 .tongzhi-content,
 .tuan-content{
     display: flex;
     overflow: hidden;
-    padding: 5px 0;
+    margin: 15px 0;
+    transition: all 0.36s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+/*交互*/
+.tongzhi-content:hover,
+.tuan-content:hover{
+    box-shadow: 5px 5px 5px 2px #888888,
+                0 0 0 1px #006666;
 }
 .tongzhi-content.active,
 .tuan-content.active{
@@ -389,19 +444,39 @@ body>nav{
     background-color: #009e9e;
     cursor: pointer;
     margin-top: 15px;
-    transition: background-color .5s;
+    transition: all 0.36s ease;
 }
 .chara ul li:hover{
     background-color: #fc597b;
+    box-shadow: 5px 5px 5px #888888;
 }
 /*团学&特色-结束*/
 /*学术研究-开始*/
+.academic>div.col-lg-6{
+    display: flex;
+}
+.academic>div.col-lg-6 a:first-child{
+    margin-right: 30px;
+}
+.thumbnail .academic-img{
+    height: 174px;
+    width: 100%;
+    overflow: hidden;
+}
 .thumbnail,
 .thumbnail:hover,
 .thumbnail .caption{
     border: 0;
     padding: 0;!important;
     margin: 0;
+    overflow: hidden;
+}
+.thumbnail img{
+    transition: all 0.4s ease;
+    transform-origin: center;
+}
+.thumbnail:hover img{
+    transform: scale(1.2);
 }
 .academic .caption section{
     display: flex;
@@ -446,6 +521,19 @@ body>nav{
     text-align: center;
     display: block;
     line-height: 60px;
+    transition: all 0.4s ease;
+}
+.relation-link a:hover{
+    background: #006666;
+    color: white;
+}
+@media only screen and (max-width: 768px){
+    .relation-link a:hover{
+        background: none;
+    }
+    .relation-link a{
+        width: 100px;
+    }
 }
 /*相关链接-结束*/
 /*页脚-开始*/

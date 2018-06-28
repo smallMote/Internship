@@ -1,3 +1,9 @@
+/*
+	@author wlittleyang
+	前端兴趣爱好者
+	正在搭建个人网站求各界人士给予帮助
+	个人gethub：https://github.com/smallMote
+*/
 $(function () {
     const main_banner_action = (function () {
         let bean = main_banner_bean();
@@ -31,8 +37,10 @@ $(function () {
         },2000);
         //图片的抚摸，抚摸在上方时暂停自动播放，溢出抚摸开始自动播放
         let imgHover = bean.item.hover(function () {
+            $('#wlittleyang-banner-fade .item img').css({transform: 'scale(1.2)'});
             clearInterval(timer);
         },function () {
+            $('#wlittleyang-banner-fade .item img').css({transform: 'scale(1)'});
             timer = setInterval(function () {
                 $('#wlittleyang-banner-fade .action-right').click();
             },2000);
@@ -45,7 +53,6 @@ $(function () {
             let now_i = $(this).index();
             item.css({opacity : 0});
             $(item[now_i]).css({opacity : 1});
-            console.log(now_i);
             //指示器样式改变
             count = now_i;
             $hoverAction.css({background:'none' , color : 'white'});
