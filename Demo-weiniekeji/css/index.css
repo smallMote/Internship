@@ -1,5 +1,7 @@
 html{
     font-size: 16px;
+    box-sizing: border-box;
+    color: #555555;
 }
 *{
     padding: 0;
@@ -17,7 +19,7 @@ img{
 }
 /*header-开始*/
 header{
-    background: url("../images/header-bg.jpg") 100% no-repeat;
+    background: url("../images/header-bg.jpg") center no-repeat;
     font-size: 12px;!important;
 }
 a:hover{
@@ -53,9 +55,15 @@ a:hover{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: relative;
+    overflow: visible;
 }
 .logo img{
-    width: 50%;
+    width: 65%;
+    position: absolute;
+    top: -30px;
+    z-index: 1;
+    transition: all 1s ease;
 }
 .menu{
     display: flex;
@@ -108,7 +116,7 @@ body>nav{
 .nav-menu li a{
     display: block;
     line-height: 36px;
-    padding: 0 15px;
+    padding: 0 20px;
     color: #006699;
 }
 .nav-menu>li:last-child a{
@@ -156,70 +164,6 @@ body>nav{
     background: none;
     border: 0;
 }
-@media only screen and (max-width: 768px) {
-    body>header{
-        height: 50px;
-        position: relative;
-    }
-    body>header .select-lang,
-    body>header .search{
-        display: none;
-    }
-    body>header .search input{
-        outline: none;
-    }
-    .logo img{
-        margin-top: 15px;
-    }
-    #clickRoot{
-        display: block;
-        position: absolute;
-        z-index: 1;
-        top: 10px;
-        right: 10px;
-    }
-    /*菜单交互*/
-    body>nav{
-        height: auto;
-        margin-bottom: 0;
-        background: #e6e6e6;
-    }
-    .nav-menu li:hover{
-        background: none;
-    }
-    .nav-menu li:hover a{
-        color: black;
-    }
-    .nav-menu li:hover ul{
-        display: none;
-    }
-    .nav-menu{
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        z-index: 999;
-        padding: 0;
-        margin-bottom: 0;
-    }
-    .carousel-indicators{
-        z-index: -1;!important;
-    }
-    .nav-menu li{
-        width: 30%;
-    }
-    .nav-menu li a{
-        color: #777777;
-    }
-    .news>div,
-    .news .col>div{
-        padding: 0;!important;
-    }
-
-}
-@media only screen and (max-width: 1000px){
-    .nav-menu li a{
-        padding: 0 5px;
-    }
-}
 /*nav-结束*/
 /*banner-开始*/
 .carousel-control.left{
@@ -241,7 +185,7 @@ body>nav{
     margin: 30px auto;
 }
 .news a{
-    color: black;
+    color: #555555;
 }
 .title{
     display: flex;
@@ -255,20 +199,27 @@ body>nav{
     flex-direction: column;
     justify-content: flex-end;
 }
+.more-link:hover a{
+    color: #fc597b;
+}
 .title h2{
     display: block;
     border-bottom: 2px solid #006666;
     margin: 0;
     padding-bottom: 5px;
+    font-size: 24px;
 }
 .more-link a{
     display: block;
     line-height: 30px;
-    color: black;
+    color: #555555;
 }
 .more-link img{
     width: 15px;
     margin: auto 0;
+}
+.news .row{
+    margin: 0;
 }
 .news .col>div{
     padding: 0 15px;
@@ -332,7 +283,7 @@ body>nav{
     cursor: pointer;
 }
 #wlittleyang-banner-fade .action-hover {
-    width: 60px;
+    width: 80px;
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -363,11 +314,14 @@ body>nav{
     line-height: 25px;
     transition: all 0.36s ease;
     color: #6f6f6f;
+    justify-content: space-between;
+    text-align: left;
 }
 .news-content-list>div a{
     transition: all 0.36s ease;
     color: #6f6f6f;
     text-decoration: none;
+    width: 100%;
 }
 /*交互*/
 .news-content-list>div:hover{
@@ -386,15 +340,18 @@ body>nav{
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-right: 5px;
+    width: 100%;
 }
 .tongzhi-content,
 .tuan-content{
     display: flex;
     overflow: hidden;
-    margin: 15px 0;
+    margin: 10px 0;
     transition: all 0.36s ease;
     cursor: pointer;
     box-sizing: border-box;
+}
+.tuan-content{
 }
 /*交互*/
 .tongzhi-content:hover,
@@ -404,26 +361,43 @@ body>nav{
     background-color: #006666;
     color: white;
 }
+.tongzhi-content:hover span,
+.tuan-content:hover span{
+    color: white;
+}
 .tuan-content:hover .date h3,
-.tongzhi-content:hover .date h3{
+.tuan-content:hover .date span,
+.tongzhi-content:hover .date h3,
+.tongzhi-content:hover .date span{
     color: white;
 }
 .tongzhi-content .date,
 .tuan-content .date{
-    padding: 0 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.tongzhi-content .date>div,
+.tuan-content .date>div{
     border-right: 1px solid white;
+    padding: 0 15px;
+    margin: 5px auto;
 }
 .tongzhi-content .date h3,
 .tuan-content .date h3{
     line-height: 0;
     color: #006666;
+    font-size: 30px;
 }
+
 .tongzhi-content .tongzhi-message,
 .tuan-content .tuan-message{
     width: 100%;
     overflow: hidden;
     padding-left: 10px;
 }
+
 .tongzhi-content span,
 .tuan-content span{
     display: block;
@@ -431,6 +405,24 @@ body>nav{
     white-space: nowrap;
     text-overflow: ellipsis;
     margin:5px 0;
+    color: #555555;
+}
+.tuan-content .tuan-message span:last-child{
+    white-space: normal;
+}
+.tuan-content .date{
+    text-align: center;
+}
+.tuan-content .date h3{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+.tongzhi-content .date span,
+.tuan-content .date span{
+    font-size: 12px;
+    color: #a6a6a6;
+    text-align: center;
+    padding-left: 5px;
 }
 .tongzhi-content span:last-child,
 .tuan-content span:last-child{
@@ -441,7 +433,7 @@ body>nav{
 .chara ul li{
     background-color: #009e9e;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
     transition: all 0.36s ease;
 }
 .chara ul li:hover{
@@ -450,8 +442,15 @@ body>nav{
 }
 /*团学&特色-结束*/
 /*学术研究-开始*/
+.academic-con{
+    margin: 15px auto;
+}
 .academic>div.col-lg-6{
     display: flex;
+}
+.academic p{
+    color: #555555;
+
 }
 .academic>div.col-lg-6 a:first-child{
     margin-right: 30px;
@@ -525,20 +524,106 @@ body>nav{
     background: #006666;
     color: white;
 }
-@media only screen and (max-width: 768px){
-    .relation-link a:hover{
-        background: none;
-    }
-    .relation-link a{
-        width: 100px;
-    }
-}
 /*相关链接-结束*/
 /*页脚-开始*/
 body>footer{
     padding: 30px 15px 30px 15px;
     text-align: center;
     background-color: #006666;
-    color: white;
+    color: #cccccc;
 }
 /*页脚-结束*/
+@media only screen and (max-width: 1200px){
+    .nav-menu li a{
+        padding: 0 15px;
+    }
+}
+@media only screen and (max-width: 1000px){
+    .nav-menu li a{
+        padding: 0 5px;
+    }
+    .logo img{
+        top: -15%;
+    }
+}
+@media only screen and (max-width: 800px){
+    .logo img{
+        top: -8%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    /*bootstrap默认值修改*/
+    .row > div{
+        margin: 15px auto;!important;
+    }
+    .carousel-indicators{
+        z-index: -1;!important;
+    }
+    /*页面头部*/
+    body>header{
+        height: 50px;
+        position: relative;
+    }
+    body>header .select-lang,
+    body>header .search{
+        display: none;
+    }
+    body>header .search input{
+        outline: none;
+    }
+    /*logo*/
+    .logo img{
+        margin-top: 15px;
+    }
+    /*导航按钮*/
+    #clickRoot{
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+    }
+    /*导航*/
+    body>nav{
+        height: auto;
+        margin-bottom: 0;
+        background: #e6e6e6;
+    }
+    .nav-menu li:hover{
+        background: none;
+    }
+    .nav-menu li:hover a{
+        color: black;
+    }
+    .nav-menu li:hover ul{
+        display: none;
+    }
+    .nav-menu{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        z-index: 999;
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .nav-menu li{
+        width: 30%;
+    }
+    .nav-menu li a{
+        color: #777777;
+    }
+    /*新闻通知*/
+    .news>div,
+    .news .col>div{
+        padding: 0;!important;
+    }
+    .news .row{
+        margin: 0;
+    }
+    /*相关链接*/
+    .relation-link a{
+        width: 100px;
+    }
+    .relation-link a:hover{
+        background: none;
+    }
+}
