@@ -619,6 +619,9 @@ body>footer{
     .news .row{
         margin: 0;
     }
+    .banner.container{
+        padding: 0;
+    }
     /*相关链接*/
     .relation-link a{
         width: 100px;
